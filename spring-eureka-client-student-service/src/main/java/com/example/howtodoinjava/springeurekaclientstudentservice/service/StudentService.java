@@ -15,11 +15,11 @@ public class StudentService {
 	@Autowired
 	StudentRepository studentRepo;
 	
-	public Student getStudentWithHighestMarks()
+	public Student getStudentWithHighestMarks(String schoolName)
 	{
 		Student bestStudent = null;
 		List<Student> studentList = studentRepo.findAll();
-		bestStudent = studentList.parallelStream().sorted().findFirst().get();
+		bestStudent = studentList.parallelStream().filter(s->s.getSchoolName().equalsIgnoreCase(schoolName)).sorted().findFirst().get();
 		return bestStudent;
 	}
 	

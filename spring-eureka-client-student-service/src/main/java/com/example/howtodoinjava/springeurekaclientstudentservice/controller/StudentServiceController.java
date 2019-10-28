@@ -18,15 +18,21 @@ public class StudentServiceController {
 	@Autowired
 	StudentService studentService;
 
-	@RequestMapping(value = "/getStudentDetailsForSchool/{schoolname}", method = RequestMethod.GET)
-	public List<Student> getStudents(@PathVariable String schoolname) {
-		System.out.println("Getting Student details for " + schoolname);
+	@RequestMapping(value = "/getStudentDetailsForSchool/{schoolName}", method = RequestMethod.GET)
+	public List<Student> getStudents(@PathVariable String schoolName) {
+		System.out.println("Getting Student details for " + schoolName);
 
-		List<Student> studentList = studentService.getStudentsBySchoolName(schoolname);
+		List<Student> studentList = studentService.getStudentsBySchoolName(schoolName);
 		if (studentList == null) {
 			studentList = new ArrayList<Student>();
 		}
 		return studentList;
+	}
+	
+	@RequestMapping(value = "/getStudentWithHighestMarks/{schoolName}", method = RequestMethod.GET)
+	public Student getStudentWithHighestMarks(@PathVariable String schoolName) {
+		System.out.println("Getting student with highest marks of school: " + schoolName);
+		return studentService.getStudentWithHighestMarks(schoolName);
 	}
 	
 	@RequestMapping(value = "/addStudent", method = RequestMethod.POST)

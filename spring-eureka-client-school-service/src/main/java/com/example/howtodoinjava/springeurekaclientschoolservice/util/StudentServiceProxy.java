@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @FeignClient(name="student-service")
 public interface StudentServiceProxy {
 	 
-	@RequestMapping(value = "/getStudentDetailsForSchool/{schoolname}")
-	public List<Student> getStudents(@PathVariable("schoolname") String schoolname);
+	@RequestMapping(value = "/getStudentDetailsForSchool/{schoolName}")
+	public List<Student> getStudents(@PathVariable("schoolName") String schoolName);
 	
 }

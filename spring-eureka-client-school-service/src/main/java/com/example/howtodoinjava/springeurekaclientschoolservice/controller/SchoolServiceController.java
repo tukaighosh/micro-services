@@ -15,8 +15,7 @@ import com.example.howtodoinjava.springeurekaclientschoolservice.util.StudentSer
 @RefreshScope
 @RestController
 public class SchoolServiceController {
-	//@Autowired
-	//RestTemplate restTemplate;
+	
 	@Autowired
 	StudentServiceProxy studentServiceProxy;
 
@@ -29,10 +28,4 @@ public class SchoolServiceController {
 
 		return response;
 	}
-
-	/*@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}*/
 }
